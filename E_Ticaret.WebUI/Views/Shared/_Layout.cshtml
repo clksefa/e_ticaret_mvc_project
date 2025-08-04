@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="tr"> <!--en yazan kısmı tr yaptık ki çevirmeyle alakalı soru sormasın-->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/E_Ticaret.WebUI.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
+    <!--Iconlar için bootstrap kullandık-->
+</head>
+<body>
+    <partial name="_Header"/> <!--bazı komutlar layoutta kalabalık yaratmaması için header adında .cshtml oluşturup oraya aktardık ve çağırdık.-->
+        
+    <div class="container">
+        @Html.Raw(TempData["Message"])
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <partial name="_Footer" /> <!--bazı komutlar layoutta kalabalık yaratmaması için footer adında .cshtml oluşturup oraya aktardık ve çağırdık.-->
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
